@@ -3,13 +3,12 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import {
   Alert,
-  Button,
   FlatList,
   StyleSheet,
   Text,
-  TextInput,
-  View,
+  View
 } from "react-native";
+import { Button as RPButton, TextInput as RPTextInput } from 'react-native-paper';
 import { CardTarefa } from "../components/CardTarefa";
 
 export default function TelaTarefas() {
@@ -65,13 +64,16 @@ export default function TelaTarefas() {
   return (
     <View style={styles.container}>
       <View style={styles.inputView}>
-        <TextInput
-          style={styles}
+        <RPTextInput
+          style={styles.input}
           placeholder="Descrição"
           value={descricao}
           onChangeText={setDescricao}
         />
-        <Button title="ADD" onPress={handleAdd} />
+        <RPButton 
+          onPress={handleAdd}
+          mode="outlined"
+        >Add</RPButton>
       </View>
       <FlatList
         style={{ flex: 1, width: "100%" }}
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   input: {
-    width: "100%",
+    width: "75%",
     padding: 5,
   },
   inputView: {
@@ -126,9 +128,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     padding: 5,
-    borderColor: "black",
-    borderWidth: 1,
-    borderStyle: "solid",
     borderRadius: 5,
     marginBottom: 10,
     marginTop: 10,

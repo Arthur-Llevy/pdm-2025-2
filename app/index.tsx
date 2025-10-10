@@ -1,19 +1,17 @@
 import { Spinner } from "@/components/ui/spinner";
-import { Switch } from "@/components/ui/switch";
 import { Link } from "expo-router";
 import {
   Dimensions,
-  Switch as RNSwitch,
   StyleSheet,
   Text,
-  View,
+  View
 } from "react-native";
 
 import { PizzaTranslator } from "@/components/PizzaTranslator";
-// import { ScrollViewApp } from "@/components/ScrollViewApp";
-// import { FlatListExample } from "@/components/FlatListExample";
 import { SectionListExample } from "@/components/SectionListExample";
 import { useStore } from "@/zustand";
+
+import { Switch as RPSwitch } from 'react-native-paper';
 
 console.log("window dimensions: ", Dimensions.get("window"));
 
@@ -23,12 +21,10 @@ export default function Index() {
 
   return (
     <View style={styles.rootContainer}>
-      <RNSwitch
-        trackColor={{ false: "#767577", true: "#81b0ff" }}
-        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-        ios_backgroundColor="#3e3e3e"
+      <RPSwitch
         onValueChange={toggleIsEnabled}
         value={isEnabled}
+        color="purple"
       />
       <View className="flex-1 items-center justify-center bg-white">
         <Text className="text-xl font-bold text-blue-500">
@@ -36,14 +32,6 @@ export default function Index() {
         </Text>
       </View>
       <Spinner size="large" color="orange" />
-      <Switch
-        size="md"
-        isDisabled={false}
-        trackColor={{ false: "#d4d4d4", true: "#525252" }}
-        thumbColor="#fafafa"
-        activeThumbColor="#fafafa"
-        ios_backgroundColor="#d4d4d4"
-      />
       {isEnabled ? (
         <SectionListExample />
       ) : (

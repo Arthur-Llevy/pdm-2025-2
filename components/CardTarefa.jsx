@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Button, StyleSheet, Switch, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { Button, Switch } from "react-native-paper";
 
 export function CardTarefa({ tarefa, onToggle, onPress }) {
   const [disabled, setDisabled] = useState(false);
@@ -16,6 +17,7 @@ export function CardTarefa({ tarefa, onToggle, onPress }) {
         <Text>{tarefa.descricao}</Text>
         <Switch
           trackColor={{ false: "#767577", true: "#81b0ff" }}
+          color="purple"
           thumbColor={tarefa.concluida ? "#f5dd4b" : "#f4f3f4"}
           ios_backgroundColor="#3e3e3e"
           value={tarefa.concluida}
@@ -26,10 +28,11 @@ export function CardTarefa({ tarefa, onToggle, onPress }) {
         <View style={{ flex: 1 }} />
         <Button
           disabled={disabled}
-          color="indianred"
           onPress={handlePress}
-          title="X"
-        />
+          mode="outlined"
+          button="purple"
+        > X
+        </Button>
       </View>
     </View>
   );
