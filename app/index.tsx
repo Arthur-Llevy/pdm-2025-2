@@ -1,4 +1,3 @@
-import { Spinner } from "@/components/ui/spinner";
 import { Link } from "expo-router";
 import {
   Dimensions,
@@ -11,7 +10,7 @@ import { PizzaTranslator } from "@/components/PizzaTranslator";
 import { SectionListExample } from "@/components/SectionListExample";
 import { useStore } from "@/zustand";
 
-import { Switch as RPSwitch } from 'react-native-paper';
+import { ActivityIndicator, Switch as RPSwitch } from 'react-native-paper';
 
 console.log("window dimensions: ", Dimensions.get("window"));
 
@@ -31,7 +30,7 @@ export default function Index() {
           Welcome to Nativewind!
         </Text>
       </View>
-      <Spinner size="large" color="orange" />
+       <ActivityIndicator animating={true} />
       {isEnabled ? (
         <SectionListExample />
       ) : (
